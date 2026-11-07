@@ -1,0 +1,19 @@
+/* ProTask icons – icons.css
+   Use with the sprite:  <svg class="icon" aria-hidden="true"><use href="icons/sprite.svg#i-kanban"/></svg>
+   The icon takes the text colour of its parent (currentColor) and a mint accent dot. */
+.icon{
+  width:1.5rem;height:1.5rem;flex:none;
+  color:#0B2545;            /* Deep Navy, change it or inherit: color:inherit */
+  --accent:#2DD4BF;         /* Done Mint, the dot of the logo */
+  vertical-align:middle;
+}
+.icon--sm{width:1rem;height:1rem}
+.icon--lg{width:2rem;height:2rem}
+.icon--xl{width:3rem;height:3rem}
+.icon--blue{color:#2563EB}
+.icon--slate{color:#64748B}
+.icon--white{color:#fff}
+
+/* Coloured tile (use the ready-made files in icons/tiles/, or build your own) */
+.icon-tile{display:inline-grid;place-items:center;width:3rem;height:3rem;border-radius:12px;background:#2563EB;color:#fff}
+.icon-tile .icon{color:inherit;width:1.75rem;height:1.75rem}

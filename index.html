@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProTask – Plan, assign and ship together</title>
+<meta name="description" content="ProTask puts your boards, deadlines, messages and files in one workspace for student and startup teams.">
+
+<!-- Same font stack as the ClickUp CSS you uploaded: Plus Jakarta Sans (headings) + Inter (text) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@650;700&display=swap" rel="stylesheet">
+
+<!-- All the styling lives in this one file -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="nav">
+  <div class="container nav__inner">
+    <a href="#top" class="logo" aria-label="ProTask home">
+      <span class="logo__mark">
+        <svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>
+      </span>
+      ProTask
+    </a>
+    <nav aria-label="Main">
+      <ul class="nav__links" id="main-menu">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#ai">AI assistant</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav__cta">
+      <a href="#" class="btn btn--light">Log in</a>
+      <a href="#pricing" class="btn btn--dark">Get started</a>
+      <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="hero">
+    <div class="container hero__grid">
+
+      <div>
+        <span class="badge"><i></i> Built for student and startup teams</span>
+        <h1>Plan, assign and ship together.</h1>
+        <p class="lead">ProTask puts your boards, deadlines, messages and files in one workspace, so nobody has to ask what is happening.</p>
+        <div class="hero__cta">
+          <a href="#pricing" class="btn btn--dark btn--lg">Create a free workspace</a>
+          <a href="#features" class="btn btn--light btn--lg">See how it works</a>
+        </div>
+        <p class="hero__note">Free for teams up to 5 people. No credit card.</p>
+      </div>
+
+      <!-- Kanban mock-up (pure HTML/CSS, no image needed) -->
+      <div class="board" role="img" aria-label="Example ProTask Kanban board with three columns: To do, In progress and Done">
+        <div class="board__bar">
+          <span class="board__dots"><span></span><span></span><span></span></span>
+          Website redesign · Sprint 3
+        </div>
+        <div class="board__cols">
+
+          <div class="col" style="--dot:#9a9aa6">
+            <h4><span>To do</span><b>2</b></h4>
+            <div class="card">Write user stories
+              <small>Due Oct 12</small>
+              <div class="card__foot"><span class="tag tag--soon">3 days left</span>
+                <span class="avatars"><i style="--c:#6647f0"></i></span></div>
+            </div>
+            <div class="card">Set up database
+              <small>Due Oct 15</small>
+              <div class="card__foot"><span class="tag tag--ok">On track</span>
+                <span class="avatars"><i style="--c:#0091ff"></i><i style="--c:#fc6d2d"></i></span></div>
+            </div>
+          </div>
+
+          <div class="col" style="--dot:var(--blue)">
+            <h4><span>In progress</span><b>2</b></h4>
+            <div class="card">Login page design
+              <small>Due Oct 8</small>
+              <div class="card__foot"><span class="tag tag--late">Overdue</span>
+                <span class="avatars"><i style="--c:#078d3b"></i></span></div>
+            </div>
+            <div class="card">REST API routes
+              <small>Due Oct 18</small>
+              <div class="card__foot"><span class="tag tag--ok">On track</span>
+                <span class="avatars"><i style="--c:#6647f0"></i><i style="--c:#0091ff"></i></span></div>
+            </div>
+          </div>
+
+          <div class="col" style="--dot:var(--green)">
+            <h4><span>Done</span><b>1</b></h4>
+            <div class="card">Project brief
+              <small>Completed</small>
+              <div class="card__foot"><span class="tag tag--ok">Done</span>
+                <span class="avatars"><i style="--c:#fc6d2d"></i></span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 2. PROBLEM ============ -->
+  <section class="section" aria-labelledby="problem-title">
+    <div class="container">
+      <div class="section__head">
+        <h2 id="problem-title">Group work gets tangled fast</h2>
+        <p>Chats, files and deadlines end up in different places. Your team spends its time searching instead of building.</p>
+      </div>
+
+      <div class="tangle">
+        <img src="images/context-tangle.webp" width="2480" height="452"
+             alt="A grey cable tied in three knots, with app icons and questions caught in the knots">
+      </div>
+
+      <div class="problems">
+        <div class="problem">
+          <h3>Too many tools</h3>
+          <p>Tasks in one app, messages in another, files in a third. <strong>Every switch costs focus.</strong></p>
+        </div>
+        <div class="problem">
+          <h3>Missing context</h3>
+          <p>A task without its discussion or files is hard to start. <strong>People ask the same questions twice.</strong></p>
+        </div>
+        <div class="problem">
+          <h3>Unclear ownership</h3>
+          <p>"Where's that file?" "Who can help with this?" <strong>Answers should be one click away.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. FEATURES ============ -->
+  <section class="section section--box" id="features" aria-labelledby="features-title">
+    <div class="container">
+      <div class="section__head">
+        <h2 id="features-title">Everything your team needs in one place</h2>
+        <p>Start with the essentials for a school project or a small startup. Add more as the team grows.</p>
+      </div>
+
+      <div class="features">
+        <article class="feature">
+          <div class="feature__visual">
+            <img src="images/feature-docs.png" width="830" height="508" alt="Example of a shared project brief document">
+          </div>
+          <div class="feature__body">
+            <h3>Docs next to your tasks</h3>
+            <p>Write briefs, meeting notes and specs. Link them to the tasks they belong to.</p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="feature__visual">
+            <img src="images/feature-chat.webp" width="657" height="469" alt="Example of a team chat with reactions">
+          </div>
+          <div class="feature__body">
+            <h3>Team chat and notifications</h3>
+            <p>Talk about the work where the work is. Get notified when a task or deadline changes.</p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="feature__visual">
+            <img src="images/feature-brain.webp" width="439" height="313" alt="Example of asking what happened last week and seeing a task in progress">
+          </div>
+          <div class="feature__body">
+            <h3>Find anything in seconds</h3>
+            <p>Search tasks, messages and files together, or ask what changed while you were away.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Wide card: custom statuses -->
+      <article class="feature-wide">
+        <div class="feature-wide__text">
+          <h3>Statuses that match your process</h3>
+          <p>Name your own columns, like "Needs updates" or "Closed", and move tasks across as the work moves.</p>
+          <ul class="checks">
+            <li>Create, rename and color your own statuses</li>
+            <li>Assign one or several people to a task</li>
+            <li>Set a due date and get a reminder</li>
+          </ul>
+        </div>
+        <div class="feature-wide__visual">
+          <img src="images/feature-statuses.webp" width="582" height="248" alt="Two board columns named Needs updates and Closed, each with a task, assignees and a due date">
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 4. AI ASSISTANT ============ -->
+  <section class="section" id="ai" aria-labelledby="ai-title">
+    <div class="container ai__grid">
+
+      <div class="ai__text">
+        <h2 id="ai-title">Simple AI that saves you time</h2>
+        <p>Five small assistants handle the boring parts. You stay in control and can edit everything they write.</p>
+        <ul class="checks">
+          <li>Summarize a long discussion in a few lines</li>
+          <li>Suggest a due date and an owner for a new task</li>
+          <li>Warn the team before a deadline is missed</li>
+          <li>Write a weekly progress report</li>
+          <li>Translate messages between French, English and Arabic</li>
+        </ul>
+        <a href="#contact" class="btn btn--dark btn--lg">Ask about the AI features</a>
+      </div>
+
+      <div class="panel-wrap">
+
+        <!-- Soft colored glow behind the panel. These are your three "deep-search-fade" SVGs,
+             pasted inline so CSS can set their color with --fill-0. -->
+        <svg class="glow glow--purple" aria-hidden="true" preserveAspectRatio="none" overflow="visible" viewBox="0 0 406.2 417.2" fill="none" xmlns="http://www.w3.org/2000/svg" style="--fill-0:#6647f0">
+          <g filter="url(#glow-blur-2)"><path fill-rule="evenodd" clip-rule="evenodd" d="M207.635 142.836C221.6 147.031 227.736 163.852 237.742 175.743C247.379 187.193 261.146 194.657 264.27 210.134C268.075 228.992 268.457 252.291 255.783 265.133C243.289 277.791 224.3 266.291 207.635 267.517C188.628 268.915 168.146 285.681 152.86 272.703C137.216 259.42 139.471 232.39 140.053 210.134C140.612 188.763 141.929 165.246 156.038 151.196C169.651 137.641 190.171 137.589 207.635 142.836Z" fill="var(--fill-0)"/></g>
+          <defs><filter id="glow-blur-2" x="0" y="0" width="406.2" height="417.2" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="69.8"/></filter></defs>
+        </svg>
+
+        <svg class="glow glow--blue" aria-hidden="true" preserveAspectRatio="none" overflow="visible" viewBox="0 0 353.8 335.8" fill="none" xmlns="http://www.w3.org/2000/svg" style="--fill-0:#0091ff">
+          <g filter="url(#glow-blur-3)"><path fill-rule="evenodd" clip-rule="evenodd" d="M181.435 115.956C195.4 119.269 201.536 132.555 211.542 141.948C221.179 150.992 234.946 156.887 238.07 169.112C241.875 184.006 242.257 202.41 229.583 212.553C217.089 222.551 198.1 213.468 181.435 214.436C162.428 215.54 141.946 228.783 126.66 218.532C111.016 208.04 113.271 186.691 113.853 169.112C114.412 152.231 115.729 133.657 129.838 122.56C143.451 111.853 163.971 111.811 181.435 115.956Z" fill="var(--fill-0)"/></g>
+          <defs><filter id="glow-blur-3" x="0" y="0" width="353.8" height="335.8" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="56.7"/></filter></defs>
+        </svg>
+
+        <svg class="glow glow--light" aria-hidden="true" preserveAspectRatio="none" overflow="visible" viewBox="0 0 269.6 194.6" fill="none" xmlns="http://www.w3.org/2000/svg" style="--fill-0:#fff">
+          <g filter="url(#glow-blur-1)" style="mix-blend-mode:overlay"><path fill-rule="evenodd" clip-rule="evenodd" d="M141.013 50.1212C160.146 53.131 168.553 65.1981 182.263 73.7286C195.465 81.9431 214.328 87.2974 218.607 98.4006C223.821 111.929 224.344 128.644 206.979 137.856C189.863 146.937 163.846 138.687 141.013 139.567C114.973 140.57 86.9096 152.598 65.9673 143.287C44.5336 133.757 47.6228 114.367 48.4204 98.4006C49.1864 83.069 50.9914 66.1985 70.322 56.1192C88.9716 46.395 117.086 46.3572 141.013 50.1212Z" fill="var(--fill-0)"/></g>
+          <defs><filter id="glow-blur-1" x="0" y="0" width="269.6" height="194.6" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="23.9"/></filter></defs>
+        </svg>
+
+        <div class="panel">
+          <div class="panel__ask">
+            <img src="images/feature-brain.webp" width="439" height="313" alt="Asking ProTask what you missed last week">
+          </div>
+          <ul class="assistants">
+            <li><img src="images/assistant-1.webp" width="78" height="78" alt=""><b>Summary</b><span>Recaps a thread</span></li>
+            <li><img src="images/assistant-2.webp" width="78" height="78" alt=""><b>Deadlines</b><span>Flags late tasks</span></li>
+            <li><img src="images/assistant-3.webp" width="78" height="78" alt=""><b>Planner</b><span>Suggests owners</span></li>
+            <li><img src="images/assistant-4.webp" width="78" height="78" alt=""><b>Reports</b><span>Weekly progress</span></li>
+            <li><img src="images/assistant-5.webp" width="78" height="78" alt=""><b>Translate</b><span>FR · EN · AR</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 5. PRICING ============ -->
+  <section class="section section--box" id="pricing" aria-labelledby="pricing-title">
+    <div class="container">
+      <div class="section__head">
+        <h2 id="pricing-title">Start free, upgrade when you grow</h2>
+        <p>Prices are in Tunisian dinars (TND).</p>
+        <div class="billing" role="group" aria-label="Billing period">
+          <button class="billing__btn" type="button" data-period="month" aria-pressed="true">Monthly</button>
+          <button class="billing__btn" type="button" data-period="year" aria-pressed="false">Yearly (save 20%)</button>
+        </div>
+      </div>
+
+      <div class="plans">
+        <article class="plan">
+          <h3>Free</h3>
+          <p class="plan__for">For a school project or a first test</p>
+          <div class="plan__price"><strong>0</strong><span>TND, forever</span></div>
+          <ul class="checks">
+            <li>Up to 5 members</li>
+            <li>Unlimited Kanban boards</li>
+            <li>Deadlines and task assignment</li>
+            <li>Team chat</li>
+          </ul>
+          <a href="#contact" class="btn btn--light btn--block btn--lg">Start free</a>
+        </article>
+
+        <article class="plan plan--popular">
+          <span class="plan__flag">Most popular</span>
+          <h3>Team</h3>
+          <p class="plan__for">For clubs and small startups</p>
+          <div class="plan__price"><strong data-month="9" data-year="7">9</strong><span>TND <span data-period-label>per user / month</span></span></div>
+          <ul class="checks">
+            <li>Everything in Free</li>
+            <li>Unlimited members</li>
+            <li>Google Drive and Dropbox files</li>
+            <li>Activity log and reports</li>
+            <li>AI summaries and deadline alerts</li>
+          </ul>
+          <a href="#contact" class="btn btn--dark btn--block btn--lg">Choose Team</a>
+        </article>
+
+        <article class="plan">
+          <h3>Business</h3>
+          <p class="plan__for">For companies with several teams</p>
+          <div class="plan__price"><strong>Custom</strong></div>
+          <ul class="checks">
+            <li>Everything in Team</li>
+            <li>Roles and permissions</li>
+            <li>Priority support</li>
+            <li>Help with onboarding</li>
+          </ul>
+          <a href="#contact" class="btn btn--light btn--block btn--lg">Contact us</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. CONTACT ============ -->
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="cta">
+        <div class="cta__text">
+          <h2 id="contact-title">Try ProTask with your team</h2>
+          <p>Tell us about your project. We will show you how to set up your first board.</p>
+          <a class="cta__mail" href="mailto:hello@protask.space">hello@protask.space</a>
+        </div>
+
+        <form class="form" id="contact-form" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Your full name">
+            <p class="field__msg" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="name@school.tn">
+            <p class="field__msg" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="What are you working on?"></textarea>
+            <p class="field__msg" role="alert"></p>
+          </div>
+          <button class="btn btn--white btn--lg" type="submit">Send message</button>
+          <p class="form__status" id="form-status" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a href="#top" class="logo">
+          <span class="logo__mark">
+            <svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>
+          </span>
+          ProTask
+        </a>
+        <p>Plan, assign and ship together.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#ai">AI assistant</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Account</h4>
+        <ul>
+          <li><a href="#">Log in</a></li>
+          <li><a href="#">Sign up</a></li>
+          <li><a href="#">Reset password</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer__bottom">© 2026 ProTask. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- All the behaviour (menu, pricing switch, form) lives in this file -->
+<script src="js/main.js"></script>
+</body>
+</html>

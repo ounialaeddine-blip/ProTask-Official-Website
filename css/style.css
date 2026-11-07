@@ -1,0 +1,269 @@
+/* =========================================================
+   ProTask landing page – style.css
+   Structure of this file (use Ctrl+F on the numbers):
+   1. Design tokens      6. Problem section
+   2. Reset + base       7. Features section
+   3. Buttons            8. AI assistant section
+   4. Navigation         9. Pricing section
+   5. Hero              10. Contact section + footer
+                        11. Responsive rules
+   ========================================================= */
+
+/* =========================================================
+   1. DESIGN TOKENS  (from ClickUp's :root variables,
+      renamed so they are easier to read)
+   ========================================================= */
+:root{
+  --ink:#202020;        /* main text    (ClickUp: --Core-Text-Main) */
+  --grey:#646464;       /* secondary    (--Core-Text-Secondary)     */
+  --line:#e8e8e8;       /* borders      (--Core-Border-Default)     */
+  --box:#f8f9fa;        /* soft panels  (--Core-Background-Box)     */
+  --purple:#6647f0;     /* brand accent (--Core-Accents-Purple)     */
+  --blue:#0091ff;
+  --orange:#fc6d2d;
+  --green:#078d3b;
+  --red:#c62a2f;
+  --radius:12px;
+  --font-title:"Plus Jakarta Sans",sans-serif;
+  --font-text:"Inter",sans-serif;
+}
+
+/* =========================================================
+   2. RESET + BASE
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font-text);color:var(--ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--purple);outline-offset:3px;border-radius:6px}
+.container{max-width:1120px;margin:0 auto;padding:0 20px}
+section[id]{scroll-margin-top:72px}
+.section{overflow-x:clip}                      /* glow blobs never cause sideways scrolling */            /* keeps titles visible under the sticky nav */
+
+/* Generic section spacing + heading (reused by every section) */
+.section{padding:88px 0}
+.section--box{background:var(--box);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.section__head{max-width:640px;margin:0 auto 48px;text-align:center}
+.section__head h2{margin:0;font:700 40px/1.15 var(--font-title);letter-spacing:-1.4px}
+.section__head p{margin:12px 0 0;font-size:18px;line-height:28px;color:var(--grey);letter-spacing:-.2px}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* =========================================================
+   3. BUTTONS  (ClickUp style: dark primary, light secondary)
+   ========================================================= */
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;cursor:pointer;
+  font:600 14px/16px var(--font-text);letter-spacing:-.15px;padding:8px 12px;border-radius:8px;
+  transition:background-color .2s}
+.btn--dark{background:var(--ink);color:#fff}
+.btn--dark:hover{background:rgba(32,32,32,.8)}
+.btn--light{background:#f0f0f0;color:var(--ink)}
+.btn--light:hover{background:#dedede}
+.btn--white{background:#fff;color:var(--ink)}
+.btn--white:hover{background:#ececec}
+.btn--lg{padding:14px 20px;font-size:18px;line-height:24px;letter-spacing:-.36px;border-radius:12px;font-weight:650}
+.btn--block{width:100%}
+
+/* =========================================================
+   4. NAVIGATION
+   ========================================================= */
+.nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:14px;padding-bottom:14px}
+.logo{display:flex;align-items:center;gap:8px;font:700 21px/1 var(--font-title);letter-spacing:-.8px}
+.logo__mark{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--purple),var(--blue))}
+.logo__mark svg{width:16px;height:16px}
+.nav__links{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav__links a{display:block;padding:6px 10px;border-radius:8px;font-size:14px;font-weight:500;color:var(--grey);transition:background-color .2s}
+.nav__links a:hover{background:#f0f0f0}
+.nav__cta{display:flex;gap:10px;align-items:center}
+
+/* hamburger button – only visible on small screens (see section 11) */
+.nav__toggle{display:none;width:36px;height:36px;border:0;border-radius:8px;background:#f0f0f0;cursor:pointer;padding:0;place-items:center}
+.nav__toggle span,.nav__toggle span::before,.nav__toggle span::after{display:block;width:16px;height:2px;background:var(--ink);border-radius:2px;content:"";position:relative}
+.nav__toggle span::before{position:absolute;top:-5px}
+.nav__toggle span::after{position:absolute;top:5px}
+
+/* =========================================================
+   5. HERO  (left text, right product mock-up)
+   ========================================================= */
+.hero{padding:80px 0 64px}
+.hero__grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+
+.badge{display:inline-flex;align-items:center;gap:8px;padding:4px 12px;border:1px solid var(--line);border-radius:54px;
+  font:600 14px/20px var(--font-text);letter-spacing:-.15px;margin-bottom:20px}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--green)}
+
+.hero h1{margin:0;font:700 56px/1.08 var(--font-title);letter-spacing:-2.1px;
+  /* grey-to-black gradient text, same trick as ClickUp titles */
+  background:linear-gradient(98deg,#202020 43%,#8f8f8f 92%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.1em}
+.hero p.lead{font-size:20px;line-height:28px;color:var(--grey);letter-spacing:-.2px;margin:12px 0 28px;max-width:480px}
+.hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.hero__note{font-size:12px;color:var(--grey);margin-top:12px}
+
+/* ---- Kanban mock-up (pure HTML/CSS, no image needed) ---- */
+.board{background:var(--box);border:1px solid var(--line);border-radius:20px;padding:12px;box-shadow:0 18px 40px -20px rgba(0,0,0,.18)}
+.board__bar{display:flex;align-items:center;gap:8px;padding:4px 6px 12px;font-size:13px;font-weight:600}
+.board__dots span{display:inline-block;width:9px;height:9px;border-radius:50%;background:#dcdcdc;margin-right:4px}
+.board__cols{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.col{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:10px;min-height:250px}
+.col h4{margin:0 0 10px;font:600 13px/1 var(--font-text);display:flex;justify-content:space-between;align-items:center}
+.col h4 b{font-weight:500;color:var(--grey);background:#f0f0f0;border-radius:6px;padding:2px 6px;font-size:11px}
+.col h4::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--dot);margin-right:6px;flex:none}
+.col h4 span{flex:1}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;margin-bottom:8px;box-shadow:0 1px 2px rgba(0,0,0,.05);font-size:12.5px;font-weight:500}
+.card small{display:block;color:var(--grey);font-weight:400;margin:4px 0 8px;font-size:11.5px}
+.card__foot{display:flex;align-items:center;justify-content:space-between}
+.tag{font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:5px}
+.tag--late{background:#fbdddd;color:var(--red)}
+.tag--soon{background:#fdede7;color:#b4501d}
+.tag--ok{background:#e2f8ec;color:var(--green)}
+.avatars{display:flex}
+.avatars i{width:20px;height:20px;border-radius:50%;border:2px solid #fff;margin-left:-6px;background:var(--c)}
+.avatars i:first-child{margin-left:0}
+
+/* =========================================================
+   6. PROBLEM SECTION  (the tangled-cable picture + 3 columns)
+   ========================================================= */
+/* Soft fade on all four edges: two gradient masks (left-right + top-bottom) are
+   combined, so the cable seems to appear out of, and vanish into, the page. */
+.tangle img{width:100%;height:auto;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%),
+                     linear-gradient(to bottom,transparent 0,#000 8%,#000 92%,transparent 100%);
+  -webkit-mask-composite:source-in;
+          mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%),
+                     linear-gradient(to bottom,transparent 0,#000 8%,#000 92%,transparent 100%);
+          mask-composite:intersect}
+.problems{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:-8px}
+.problem{border-left:1px solid var(--line);padding:8px 32px 8px 28px;margin-left:6%}
+.problem:nth-child(2){margin-left:0}
+.problem:nth-child(3){margin-left:0}
+.problem h3{margin:0 0 8px;font:700 26px/1.2 var(--font-title);letter-spacing:-.9px}
+.problem p{margin:0;color:var(--grey);font-size:17px;line-height:26px;letter-spacing:-.2px;max-width:300px}
+.problem strong{color:var(--ink);font-weight:600}
+
+/* =========================================================
+   7. FEATURES SECTION  (3 cards, each with a picture)
+   ========================================================= */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.feature__visual{background:var(--box);border-bottom:1px solid var(--line);height:230px;display:grid;place-items:center;padding:16px}
+.feature__visual img{max-height:198px;max-width:100%;width:auto;height:auto}
+.feature__body{padding:24px}
+.feature h3{margin:0 0 8px;font:700 22px/1.25 var(--font-title);letter-spacing:-.6px}
+.feature p{margin:0;color:var(--grey);font-size:16px;line-height:24px}
+
+/* wide card under the three small ones */
+.feature-wide{margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:40px;
+  display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}
+.feature-wide h3{margin:0 0 8px;font:700 28px/1.2 var(--font-title);letter-spacing:-.9px}
+.feature-wide p{margin:0 0 20px;color:var(--grey);font-size:17px;line-height:26px;max-width:420px}
+.feature-wide .checks{margin:0}
+.feature-wide__visual img{width:100%;height:auto}
+
+/* =========================================================
+   8. AI ASSISTANT SECTION  (text left, panel right)
+   ========================================================= */
+.ai__grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.ai__text h2{margin:0;font:700 40px/1.15 var(--font-title);letter-spacing:-1.4px}
+.ai__text > p{margin:12px 0 24px;font-size:18px;line-height:28px;color:var(--grey);letter-spacing:-.2px;max-width:480px}
+.checks{list-style:none;margin:0 0 28px;padding:0;display:grid;gap:12px}
+.checks li{position:relative;padding-left:30px;font-size:16px;line-height:24px}
+.checks li::before{content:"";position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:50%;background:#e2f8ec}
+.checks li::after{content:"";position:absolute;left:7px;top:6px;width:5px;height:9px;border:solid var(--green);border-width:0 2px 2px 0;transform:rotate(45deg)}
+
+/* wrapper holds the glow blobs (absolute) behind the panel (z-index 1) */
+.panel-wrap{position:relative;isolation:isolate}
+.glow{position:absolute;z-index:0;pointer-events:none;display:block}
+.glow--purple{width:560px;height:575px;top:-190px;right:-200px;opacity:.55}
+.glow--blue{width:500px;height:475px;bottom:-190px;left:-180px;opacity:.5}
+.glow--light{width:360px;height:260px;top:32%;left:20%;opacity:.9}
+
+.panel{position:relative;z-index:1;background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 18px 40px -24px rgba(0,0,0,.2)}
+.panel__ask{background:var(--box);border-radius:14px;display:grid;place-items:center;padding:12px;margin-bottom:16px}
+.panel__ask img{width:100%;max-width:340px;height:auto}
+.assistants{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.assistants li{text-align:center;padding:12px 4px;border:1px solid var(--line);border-radius:var(--radius)}
+.assistants img{width:52px;height:52px;border-radius:50%;margin:0 auto 8px}
+.assistants b{display:block;font-size:13px;font-weight:600}
+.assistants span{display:block;font-size:11.5px;line-height:1.35;color:var(--grey);margin-top:2px}
+
+/* =========================================================
+   9. PRICING SECTION
+   ========================================================= */
+.billing{display:inline-flex;background:#f0f0f0;border-radius:10px;padding:4px;margin-top:24px}
+.billing__btn{border:0;background:transparent;font:600 14px/1 var(--font-text);padding:9px 16px;border-radius:7px;cursor:pointer;color:var(--grey)}
+.billing__btn[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.plan{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column}
+.plan--popular{border:2px solid var(--purple)}
+.plan__flag{position:absolute;top:-12px;left:28px;background:var(--purple);color:#fff;font:600 12px/1 var(--font-text);padding:6px 10px;border-radius:20px}
+.plan h3{margin:0;font:700 22px/1.2 var(--font-title);letter-spacing:-.6px}
+.plan__for{margin:6px 0 20px;color:var(--grey);font-size:14px}
+.plan__price{display:flex;align-items:baseline;gap:6px;margin-bottom:20px;min-height:48px}
+.plan__price strong{font:700 40px/1 var(--font-title);letter-spacing:-1.4px}
+.plan__price span{color:var(--grey);font-size:14px}
+.plan .checks{margin-bottom:28px;flex:1;align-content:start}
+.plan .checks li{font-size:15px}
+
+/* =========================================================
+   10. CONTACT SECTION + FOOTER
+   ========================================================= */
+.cta{background:var(--ink);color:#fff;border-radius:24px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.cta h2{margin:0;font:700 40px/1.15 var(--font-title);letter-spacing:-1.4px}
+.cta__text p{color:#c9c9c9;font-size:18px;line-height:28px;letter-spacing:-.2px;margin:12px 0 20px;max-width:420px}
+.cta__mail{display:inline-block;font-weight:600;border-bottom:1px solid #777;padding-bottom:2px}
+
+.form{display:grid;gap:14px}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.field input,.field textarea{width:100%;font:400 15px/1.4 var(--font-text);color:#fff;background:#2b2b2b;border:1px solid #444;border-radius:10px;padding:11px 12px}
+.field textarea{min-height:110px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:#8a8a8a}
+.field input:focus,.field textarea:focus{outline:2px solid var(--purple);outline-offset:1px;border-color:transparent}
+.field--error input,.field--error textarea{border-color:#ff7b7f}
+.field__msg{display:none;color:#ff9ea1;font-size:12.5px;margin-top:6px}
+.field--error .field__msg{display:block}
+.form__status{min-height:22px;font-size:14px;font-weight:500;color:#7be0a4}
+
+.footer{padding:56px 0 40px}
+.footer__grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:32px}
+.footer p{color:var(--grey);font-size:14px;margin:12px 0 0;max-width:260px}
+.footer h4{margin:0 0 12px;font:600 14px/1 var(--font-text)}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.footer ul a{color:var(--grey);font-size:14px}
+.footer ul a:hover{color:var(--ink)}
+.footer .footer__bottom{max-width:none;margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--grey);font-size:13px}
+
+/* =========================================================
+   11. RESPONSIVE (tablet and phone)
+   ========================================================= */
+@media(max-width:900px){
+  .section{padding:56px 0}
+  .section__head h2,.ai__text h2,.cta h2{font-size:32px;letter-spacing:-1.1px}
+
+  .hero{padding:40px 0}
+  .hero__grid,.ai__grid,.cta,.feature-wide{grid-template-columns:1fr}
+  .feature-wide{padding:24px;gap:24px}
+  .glow--purple{width:380px;height:390px;right:-140px}
+  .glow--blue{width:340px;height:325px;left:-120px}
+  .hero h1{font-size:40px;letter-spacing:-1.6px}
+
+  /* nav: links become a dropdown opened by the hamburger */
+  .nav__toggle{display:grid}
+  .nav__links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:8px 20px 16px}
+  .nav__links.is-open{display:flex}
+  .nav__links a{padding:12px 10px;font-size:16px}
+
+  .problems{grid-template-columns:1fr;gap:24px;margin-top:24px}
+  .problem,.problem:nth-child(2),.problem:nth-child(3){margin-left:0}
+  .features,.plans{grid-template-columns:1fr}
+  .cta{padding:32px 24px}
+  .footer__grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .board__cols{grid-template-columns:1fr 1fr}
+  .col:nth-child(3){display:none}
+  .nav__cta .btn--light{display:none}
+  .assistants{grid-template-columns:repeat(3,1fr)}
+}
