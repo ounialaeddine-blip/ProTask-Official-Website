@@ -71,9 +71,7 @@ section[id]{scroll-margin-top:72px}
 .nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
 .nav__inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:14px;padding-bottom:14px}
 .logo{display:flex;align-items:center;gap:8px;font:700 21px/1 var(--font-title);letter-spacing:-.8px}
-.logo__mark{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;
-  background:linear-gradient(135deg,var(--purple),var(--blue))}
-.logo__mark svg{width:16px;height:16px}
+.logo__mark{width:28px;height:28px;display:block;flex:none}   /* the file images/logo-mark.svg */
 .nav__links{display:flex;gap:4px;list-style:none;margin:0;padding:0}
 .nav__links a{display:block;padding:6px 10px;border-radius:8px;font-size:14px;font-weight:500;color:var(--grey);transition:background-color .2s}
 .nav__links a:hover{background:#f0f0f0}
@@ -300,14 +298,53 @@ section[id]{scroll-margin-top:72px}
 .field--error .field__msg{display:block}
 .form__status{min-height:22px;font-size:14px;font-weight:500;color:#7be0a4}
 
-.footer{padding:56px 0 40px}
-.footer__grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:32px}
-.footer p{color:var(--grey);font-size:14px;margin:12px 0 0;max-width:260px}
-.footer h4{margin:0 0 12px;font:600 14px/1 var(--font-text)}
-.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.footer ul a{color:var(--grey);font-size:14px}
-.footer ul a:hover{color:var(--ink)}
-.footer .footer__bottom{max-width:none;margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--grey);font-size:13px}
+.footer{background:var(--box);border-top:1px solid var(--line);padding:64px 0 32px}
+.footer__grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:40px}
+.footer__brand p{color:var(--grey);font-size:15px;line-height:24px;margin:14px 0 16px;max-width:300px}
+.footer__mail{display:inline-block;font-size:15px;font-weight:600;border-bottom:1px solid #c9c9c9;padding-bottom:1px}
+.footer__mail:hover{border-color:var(--ink)}
+.social{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:20px 0 0;padding:0}
+.social a{display:block;padding:7px 12px;border:1px solid var(--line);border-radius:54px;background:#fff;font-size:13px;font-weight:600;transition:border-color .2s,background-color .2s}
+.social a:hover{border-color:var(--ink)}
+.footer h3{margin:0 0 14px;font:700 15px/1 var(--font-title);letter-spacing:-.2px}
+.footer nav ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.footer nav a{color:var(--grey);font-size:15px;transition:color .2s}
+.footer nav a:hover{color:var(--ink)}
+.footer__bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
+.footer__bottom p{margin:0;color:var(--grey);font-size:13px}
+
+/* =========================================================
+   10b. LEGAL PAGES (privacy, terms, cookies, legal notice)
+   ========================================================= */
+.legal-head{padding-top:56px;padding-bottom:40px;max-width:1120px}
+.legal-head__back{display:inline-block;font-size:14px;font-weight:600;color:var(--grey);margin-bottom:20px}
+.legal-head__back:hover{color:var(--ink)}
+.legal-head h1{margin:0;font:700 48px/1.1 var(--font-title);letter-spacing:-1.8px}
+.legal-head p{margin:12px 0 0;max-width:620px;font-size:18px;line-height:28px;color:var(--grey);letter-spacing:-.2px}
+.legal-head .legal-head__meta{font-size:14px;line-height:20px}
+
+.legal{display:grid;grid-template-columns:240px minmax(0,1fr);gap:64px;align-items:start;padding-top:40px;padding-bottom:96px;
+  background:linear-gradient(var(--line),var(--line)) center top/calc(100% - 40px) 1px no-repeat}
+.legal__aside{position:sticky;top:88px;display:grid;gap:32px}
+.legal__label{margin:0 0 10px;font:600 13px/1 var(--font-text);color:var(--grey)}
+.legal__pages,.toc{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.legal__pages a,.toc a{display:block;padding:7px 10px;margin-left:-10px;border-radius:8px;font-size:14px;line-height:20px;color:var(--grey);transition:background-color .2s,color .2s}
+.legal__pages a:hover,.toc a:hover{background:#f0f0f0;color:var(--ink)}
+.legal__pages a[aria-current],.toc a[aria-current]{background:#f0f0f0;color:var(--ink);font-weight:600}
+.toc{counter-reset:toc}
+.toc li{counter-increment:toc}
+.toc a::before{content:counter(toc) ". ";color:#9a9aa6}
+
+.legal__content{max-width:720px;counter-reset:clause}
+.legal__content section{padding-bottom:36px;scroll-margin-top:88px}
+.legal__content h2{counter-increment:clause;margin:0 0 12px;font:700 26px/1.25 var(--font-title);letter-spacing:-.8px;scroll-margin-top:88px}
+.legal__content h2::before{content:counter(clause) ". ";color:#9a9aa6}
+.legal__content p,.legal__content li{font-size:17px;line-height:28px;color:#3a3a3a}
+.legal__content p{margin:0 0 14px}
+.legal__content ul,.legal__content ol{margin:0 0 14px;padding-left:22px}
+.legal__content a{text-decoration:underline;text-underline-offset:3px}
+/* placeholder paragraphs: delete the class "todo" once you have written the real text */
+.todo{padding:14px 16px;border:1px dashed #d4d4d8;border-radius:12px;background:var(--box);color:var(--grey)!important}
 
 /* =========================================================
    11. RESPONSIVE (tablet and phone)
@@ -339,7 +376,12 @@ section[id]{scroll-margin-top:72px}
   .problem,.problem:nth-child(2),.problem:nth-child(3){margin-left:0}
   .features,.plans{grid-template-columns:1fr}
   .cta{padding:32px 24px}
-  .footer__grid{grid-template-columns:1fr 1fr}
+  .footer__grid{grid-template-columns:1fr 1fr;gap:32px 24px}
+  .footer__brand{grid-column:1/-1}
+  .legal-head{padding-top:32px}
+  .legal-head h1{font-size:34px;letter-spacing:-1.2px}
+  .legal{grid-template-columns:1fr;gap:32px;padding-bottom:64px}
+  .legal__aside{position:static;grid-template-columns:1fr 1fr;gap:24px}
 }
 @media(max-width:520px){
   .hero h1{font-size:38px;letter-spacing:-1.4px}
@@ -351,4 +393,5 @@ section[id]{scroll-margin-top:72px}
   .col:nth-child(3){display:none}
   .nav__cta .btn--light{display:none}
   .assistants{grid-template-columns:repeat(3,1fr)}
+  .legal__aside{grid-template-columns:1fr}
 }
