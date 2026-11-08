@@ -1,6 +1,6 @@
 /* =========================================================
    ProTask landing page – main.js
-   Three small features, each in its own block:
+   Three small features, each in its own block (each one is skipped on pages that do not have it):
    1. Mobile menu (hamburger)
    2. Monthly / yearly pricing switch
    3. Contact form validation
@@ -10,14 +10,14 @@
 const menuButton = document.querySelector('.nav__toggle');
 const menuLinks  = document.querySelector('.nav__links');
 
-menuButton.addEventListener('click', () => {
+if (menuButton && menuLinks) menuButton.addEventListener('click', () => {
   // classList.toggle returns true when the class was added
   const isOpen = menuLinks.classList.toggle('is-open');
   menuButton.setAttribute('aria-expanded', isOpen);
 });
 
 // close the menu after tapping a link
-menuLinks.addEventListener('click', (event) => {
+if (menuLinks) menuLinks.addEventListener('click', (event) => {
   if (event.target.tagName === 'A') {
     menuLinks.classList.remove('is-open');
     menuButton.setAttribute('aria-expanded', 'false');
@@ -61,7 +61,7 @@ function clearError(input) {
   input.closest('.field').classList.remove('field--error');
 }
 
-form.addEventListener('submit', (event) => {
+if (form) form.addEventListener('submit', (event) => {
   event.preventDefault();                            // stop the page from reloading
   status.textContent = '';
 
