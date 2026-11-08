@@ -74,7 +74,8 @@ section[id]{scroll-margin-top:96px}
   background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
   border:1px solid var(--line);border-radius:999px;box-shadow:0 10px 30px -16px rgba(0,0,0,.2)}
 .logo{display:flex;align-items:center;gap:8px;font:700 21px/1 var(--font-title);letter-spacing:-.8px}
-.logo__mark{width:28px;height:28px;display:block;flex:none}   /* the file images/logo-mark.svg */
+.logo__mark{height:28px;width:auto;display:block;flex:none}   /* the file images/logo-mark.svg: change the height here if your logo needs it */
+.logo__text{white-space:nowrap}   /* the word "ProTask" next to the logo: set display:none if your logo already contains it */
 .nav__links{display:flex;gap:4px;list-style:none;margin:0;padding:0}
 .nav__links a{display:block;padding:8px 14px;border-radius:999px;font-size:14px;font-weight:500;color:var(--grey);transition:background-color .2s}
 .nav__links a:hover{background:#f0f0f0}
@@ -159,7 +160,7 @@ section[id]{scroll-margin-top:96px}
 .bento__text{margin:0;font-size:14px;line-height:21px}
 .bento__card--hero{grid-row:span 2;background:linear-gradient(170deg,#4aa8ff 0%,#8eb8ff 55%,#c5cdfb 100%);color:var(--ink);padding:20px;justify-content:space-between;min-height:420px}
 .bento__top{display:flex;align-items:center;justify-content:space-between}
-.bento__top .logo__mark{width:34px;height:34px;border-radius:10px}
+.bento__top .logo__mark{height:34px}
 .faces{display:flex;list-style:none;margin:0;padding:0}
 .faces li{margin-left:-10px}
 .faces li:first-child{margin-left:0}
