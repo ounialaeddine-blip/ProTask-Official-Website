@@ -25,17 +25,12 @@ const TEAM = {
     }
   ],
 
-  affiliations: {
-    title: 'School and community',
-    text: 'The places where ProTask is developed and where we learn.',
-    // url is optional: leave '' for no link
-    items: [
-      { label: 'Developed at', name: 'National School of Engineers of Sousse (ENISo)',
-        logo: 'images/partners/eniso-logo.svg', url: '' },
-      { label: 'Proud member of', name: 'Orange Digital Center Club',
-        logo: 'images/partners/orange-digital-center-logo.svg', url: '' }
-    ]
-  }
+  // The two logos shown side by side at the top of the page (left to right).
+  // url is optional: leave '' for no link
+  partners: [
+    { name: 'École Nationale d\'Ingénieurs de Sousse (ENISo)', logo: 'images/partners/eniso-logo.png', url: '' },
+    { name: 'Orange Digital Center Club ENISo', logo: 'images/partners/odc-club-eniso.jpg', url: '', rounded: true }
+  ]
 };
 
 /* ---------- nothing to edit below this line ---------- */
@@ -55,15 +50,13 @@ if (root) {
       ${p.bio ? `<p class="person__bio">${p.bio}</p>` : ''}
     </li>`;
 
-  const tile = (a) => {
-    const inner = `
-      <span class="affil__label">${a.label}</span>
-      <img src="${a.logo}" alt="${a.name} logo" height="48">
-      <span class="affil__name">${a.name}</span>`;
-    return a.url
-      ? `<li><a class="affil" href="${a.url}" target="_blank" rel="noopener">${inner}</a></li>`
-      : `<li><div class="affil">${inner}</div></li>`;
+  // logos separated by a thin vertical line, like a partnership
+  const logo = (p) => {
+    const img = `<img class="${p.rounded ? 'partner__img partner__img--round' : 'partner__img'}" src="${p.logo}" alt="${p.name}">`;
+    return p.url ? `<a href="${p.url}" target="_blank" rel="noopener">${img}</a>` : img;
   };
+  const partners = `
+    <div class="partners">${TEAM.partners.map(logo).join('<span class="partners__line" aria-hidden="true"></span>')}</div>`;
 
   const row = (title, text, content) => `
     <section class="team-row" aria-label="${title}">
@@ -71,7 +64,6 @@ if (root) {
       <div>${content}</div>
     </section>`;
 
-  root.innerHTML =
-    TEAM.groups.map((g) => row(g.title, g.text, `<ul class="people">${g.people.map(person).join('')}</ul>`)).join('') +
-    row(TEAM.affiliations.title, TEAM.affiliations.text, `<ul class="affils">${TEAM.affiliations.items.map(tile).join('')}</ul>`);
+  root.innerHTML = partners +
+    TEAM.groups.map((g) => row(g.title, g.text, `<ul class="people">${g.people.map(person).join('')}</ul>`)).join('');
 }
