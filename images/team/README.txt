@@ -6,4 +6,4 @@ PHOTOS - drop your files here with these exact names (JPG, square, at least 400 
 
 If a file is missing, a grey silhouette is shown instead.
 Names, roles and logos are edited in js/team.js (top of the file).
-Logos: images/partners/eniso-logo.png and odc-club-eniso.jpg (names and paths are in js/team.js).
+Logos go in images/partners/ (replace the two placeholder files, or change the paths in js/team.js).

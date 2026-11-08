@@ -1,0 +1,96 @@
+/* =========================================================
+   ProTask – auth pages (login, register, forgot / reset password)
+   Layout copied from the Figma frames: form on the left, brand panel on the right.
+   Colours and fonts come from the variables in style.css (loaded first).
+   Prefix "auth-" is used so nothing clashes with the landing page styles.
+   ========================================================= */
+.auth-body{margin:0;min-height:100vh;background:#fff}
+.auth{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.78fr);min-height:100vh;gap:16px;padding:16px}
+
+/* ---------- left side ---------- */
+.auth__side{display:flex;flex-direction:column;padding:8px 32px 8px 48px;min-height:calc(100vh - 32px)}
+.auth__top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.auth__switch{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--grey)}
+.auth__switch .btn{background:#f0f0f0;border-radius:999px;padding:11px 16px}
+.auth__switch .btn:hover{background:#dedede}
+.auth__main{flex:1;display:flex;align-items:center;justify-content:center;padding:32px 0}
+.auth__box{width:100%;max-width:400px}
+.auth__box h1{margin:0;font:700 32px/1.15 var(--font-title);letter-spacing:-1.2px}
+.auth__lead{margin:8px 0 28px;font-size:15px;line-height:22px;color:var(--grey)}
+.auth__foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:12px;color:var(--grey)}
+.auth__legal{display:flex;gap:20px;list-style:none;margin:0;padding:0}
+.auth__legal a:hover,.auth__link:hover{text-decoration:underline}
+.auth__lang{display:flex;align-items:center;gap:0}
+.auth__lang button{border:0;background:none;padding:0 8px;font:inherit;color:var(--grey);cursor:pointer}
+.auth__lang button[aria-pressed="true"]{color:var(--ink);font-weight:600}
+.auth__lang button+button{border-left:1px solid var(--line)}
+
+/* ---------- form pieces ---------- */
+.af{margin-bottom:18px}
+.af label{display:block;font-size:13px;font-weight:600}
+.af__wrap{position:relative}
+.af input[type=email],.af input[type=password],.af input[type=text]{width:100%;font:400 15px/1.4 var(--font-text);color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px;transition:border-color .15s,box-shadow .15s}
+.af input::placeholder{color:#9a9aa6}
+.af input:hover{border-color:#cfcfd6}
+.af input:focus{outline:none;border-color:var(--purple);box-shadow:0 0 0 3px rgba(102,71,240,.16)}
+.af--error input{border-color:var(--red);box-shadow:none}
+.af--error input:focus{box-shadow:0 0 0 3px rgba(198,42,47,.14)}
+.af__msg{display:none;margin:6px 0 0;font-size:12.5px;color:var(--red)}
+.af--error .af__msg{display:block}
+.af__show{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:none;font:600 12.5px var(--font-text);color:var(--grey);padding:6px 8px;border-radius:6px;cursor:pointer}
+.af__show:hover{color:var(--ink)}
+.af--pw input{padding-right:64px}
+.auth__row{display:flex;justify-content:flex-end;margin:-8px 0 20px}
+.auth__link{font-size:13px;font-weight:600;color:var(--purple)}
+.auth__btn{width:100%;padding:15px 20px;font-size:15px;border-radius:12px;font-weight:600}
+.auth__btn[disabled]{opacity:.6;cursor:progress}
+.auth__btn--light{background:#f0f0f0;color:var(--ink)}
+.auth__btn--light:hover{background:#dedede}
+.auth__note{margin:16px 0 0;font-size:12.5px;line-height:18px;color:var(--grey)}
+.auth__note a{color:var(--purple);font-weight:600}
+.auth__alert{display:none;background:#fde3e3;color:var(--red);border-radius:12px;padding:12px 14px;margin-bottom:20px;font-size:13px;line-height:19px}
+.auth__alert.is-visible{display:block}
+.auth__alert strong{display:block;font-weight:700}
+.auth__alert span{color:#8e2a2d}
+
+.rules{list-style:none;margin:-6px 0 20px;padding:0;display:grid;gap:6px;font-size:12.5px;color:var(--grey)}
+.rules li{display:flex;align-items:center;gap:8px}
+.rules li::before{content:"";width:12px;height:12px;flex:none;border-radius:50%;background:radial-gradient(circle,#9a9aa6 0 2px,transparent 2.5px)}
+.rules li.is-ok{color:var(--ink)}
+.rules li.is-ok::before{background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6.2l2 2 4-4.4'/%3E%3C/svg%3E") center/100% no-repeat}
+
+.af .consent{display:flex;font-weight:400;margin-bottom:6px;gap:10px;align-items:flex-start;font-size:13px;line-height:19px;color:var(--grey)}
+.consent input{margin:3px 0 0;width:16px;height:16px;accent-color:var(--purple);flex:none}
+.consent a{color:var(--purple);font-weight:600}
+.af--error.consent-wrap .af__msg{display:block}
+
+/* ---------- state screens (check inbox, password updated) ---------- */
+.state[hidden]{display:none}
+.badge-icon{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;margin-bottom:20px;background:#ebe7fd;color:var(--purple)}
+.badge-icon--ok{background:#dcf3e5;color:var(--green)}
+.badge-icon svg{width:26px;height:26px}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--purple);margin-bottom:18px}
+
+/* ---------- right brand panel ---------- */
+.brand{position:relative;overflow:hidden;border-radius:24px;padding:48px 40px;display:flex;flex-direction:column;justify-content:space-between;isolation:isolate;
+  background:radial-gradient(60% 45% at 20% 0%,#cdb8f5 0,transparent 70%),radial-gradient(50% 40% at 90% 0%,#f4c3cc 0,transparent 70%),radial-gradient(60% 50% at 95% 70%,#8ec5ff 0,transparent 70%),radial-gradient(50% 40% at 0% 55%,#ecd7f4 0,transparent 70%),#e6e3fb}
+.brand__tag{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:4px 12px;font:600 12px/20px var(--font-text)}
+.brand__tag i{width:7px;height:7px;border-radius:50%;background:var(--green)}
+.brand h2{margin:16px 0 0;max-width:520px;font:700 44px/1.08 var(--font-title);letter-spacing:-1.8px}
+.brand p{margin:14px 0 0;max-width:480px;color:#5c5a72;font-size:15px;line-height:22px}
+.brand__card{background:#fff;border-radius:16px;padding:14px;box-shadow:0 20px 60px -30px rgba(40,30,120,.5)}
+.brand__card h3{margin:0 0 10px;font:600 13px/1 var(--font-text)}
+.brand__row{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:8px;font-size:13px}
+.brand__pill{font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px}
+.brand__pill--soon{background:#ebe7fd;color:var(--purple)}
+.brand__pill--late{background:#fde3e3;color:var(--red)}
+.brand__pill--ok{background:#dcf3e5;color:var(--green)}
+
+/* ---------- tablet / phone ---------- */
+@media (max-width:960px){
+  .auth{grid-template-columns:1fr;padding:0}
+  .brand{display:none}                       /* the brand panel is for wide screens only (same as the Figma mobile frames) */
+  .auth__side{padding:20px 24px;min-height:100vh}
+  .auth__foot{flex-direction:column;align-items:center}
+  .auth__switch span{display:none}
+}
