@@ -360,7 +360,9 @@ section[id]{scroll-margin-top:96px}
 /* =========================================================
    10c. TEAM + AFFILIATIONS (built by js/team.js, shown on every page)
    ========================================================= */
-.team{padding:88px 0;border-top:1px solid var(--line);overflow-x:clip}
+.team{padding:0 0 64px;margin-bottom:64px;border-bottom:1px solid var(--line);scroll-margin-top:96px}   /* lives inside the footer */
+.footer .affil{background:#fff}
+.footer .team .section__head h2{font-size:34px;letter-spacing:-1.2px}
 .team__groups{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:48px}
 .team__group h3{margin:0 0 16px;font:600 14px/1 var(--font-text);color:var(--grey)}
 .people{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -409,7 +411,7 @@ a.affil:hover{border-color:var(--ink)}
   .cta{padding:32px 24px}
   .footer__grid{grid-template-columns:1fr 1fr;gap:32px 24px}
   .footer__brand{grid-column:1/-1}
-  .team{padding:56px 0}
+  .team{padding-bottom:40px;margin-bottom:40px}
   .team__groups{grid-template-columns:1fr;gap:32px;margin-bottom:32px}
   .legal-head{padding-top:32px}
   .legal-head h1{font-size:34px;letter-spacing:-1.2px}

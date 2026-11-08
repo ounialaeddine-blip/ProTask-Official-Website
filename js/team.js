@@ -55,7 +55,7 @@ if (teamRoot) {
   };
 
   teamRoot.innerHTML = `
-    <div class="container">
+    <div>
       <div class="section__head">
         <h2 id="team-title">${TEAM.title}</h2>
         <p>${TEAM.intro}</p>
