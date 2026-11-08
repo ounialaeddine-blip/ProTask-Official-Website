@@ -121,9 +121,10 @@ section[id]{scroll-margin-top:96px}
 /* ---- role chips: one entrance sequence on load, then a very slow float ---- */
 .chips{list-style:none;margin:0;padding:0}
 .chip{position:absolute;z-index:1;display:flex;align-items:flex-end;gap:0;animation:chip-in .7s cubic-bezier(.2,.8,.2,1) both,drift 7s ease-in-out infinite;animation-delay:var(--d,0s),calc(var(--d,0s) + .7s)}
-.chip__face{width:96px;height:96px;border-radius:50%;background:var(--bg);color:var(--fg);display:grid;place-items:end center;overflow:hidden;box-shadow:0 10px 30px -14px rgba(0,0,0,.3)}
+.chip__face{position:relative;width:96px;height:96px;border-radius:50%;background:var(--bg);color:var(--fg);display:grid;place-items:end center;overflow:hidden;box-shadow:0 10px 30px -14px rgba(0,0,0,.3)}
 .chip__face svg{width:70%;height:70%;margin-bottom:-6px}
-.chip em{font:600 11px/1 var(--font-text);font-style:normal;color:#fff;background:var(--tag);padding:5px 9px;border-radius:20px;margin:0 0 6px -22px;white-space:nowrap}
+.chip__face img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.chip em{position:relative;z-index:1;font:600 11px/1 var(--font-text);font-style:normal;color:#fff;background:var(--tag);padding:5px 9px;border-radius:20px;margin:0 0 6px -22px;white-space:nowrap}
 .chip::before{content:"";position:absolute;right:-6px;top:-6px;width:0;height:0;border:7px solid transparent;border-top-color:var(--tag);transform:rotate(-30deg);display:none}
 .chip--1{left:6%;top:228px;--d:.15s}
 .chip--2{left:17%;top:408px;--d:.3s}
@@ -357,6 +358,26 @@ section[id]{scroll-margin-top:96px}
 .todo{padding:14px 16px;border:1px dashed #d4d4d8;border-radius:12px;background:var(--box);color:var(--grey)!important}
 
 /* =========================================================
+   10c. TEAM + AFFILIATIONS (built by js/team.js, shown on every page)
+   ========================================================= */
+.team{padding:88px 0;border-top:1px solid var(--line);overflow-x:clip}
+.team__groups{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:48px}
+.team__group h3{margin:0 0 16px;font:600 14px/1 var(--font-text);color:var(--grey)}
+.people{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.person{display:flex;flex-direction:column;gap:2px}
+.person__photo{position:relative;aspect-ratio:1;border-radius:20px;overflow:hidden;background:#eceef2;color:#c4c8d2;display:grid;place-items:end center;margin-bottom:12px}
+.person__photo svg{width:62%;height:62%;margin-bottom:-4px}
+.person__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.person b{font:700 18px/1.25 var(--font-title);letter-spacing:-.4px}
+.person span:last-child{font-size:14px;color:var(--grey)}
+.affils{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.affil{display:flex;flex-direction:column;align-items:flex-start;gap:14px;height:100%;padding:24px;background:var(--box);border:1px solid var(--line);border-radius:20px;transition:border-color .2s}
+a.affil:hover{border-color:var(--ink)}
+.affil__label{font-size:14px;font-weight:500;color:var(--grey)}
+.affil img{height:48px;width:auto;max-width:100%;object-fit:contain}
+.affil__name{font:700 18px/1.25 var(--font-title);letter-spacing:-.4px}
+
+/* =========================================================
    11. RESPONSIVE (tablet and phone)
    ========================================================= */
 @media(max-width:900px){
@@ -388,6 +409,8 @@ section[id]{scroll-margin-top:96px}
   .cta{padding:32px 24px}
   .footer__grid{grid-template-columns:1fr 1fr;gap:32px 24px}
   .footer__brand{grid-column:1/-1}
+  .team{padding:56px 0}
+  .team__groups{grid-template-columns:1fr;gap:32px;margin-bottom:32px}
   .legal-head{padding-top:32px}
   .legal-head h1{font-size:34px;letter-spacing:-1.2px}
   .legal{grid-template-columns:1fr;gap:32px;padding-bottom:64px}
@@ -404,4 +427,5 @@ section[id]{scroll-margin-top:96px}
   .nav__cta .btn--light{display:none}
   .assistants{grid-template-columns:repeat(3,1fr)}
   .legal__aside{grid-template-columns:1fr}
+  .affils{grid-template-columns:1fr}
 }

@@ -76,16 +76,16 @@
 <div class="hero__blob hero__blob--a" aria-hidden="true"></div>
 <div class="hero__blob hero__blob--b" aria-hidden="true"></div>
 
-<!-- Role chips: a person, a label and a small cursor, like a live team -->
+<!-- Role chips: put your photos in images/team/hero-1.jpg ... hero-5.jpg (square). Without a file, the silhouette stays. Change the role words below. -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <symbol id="person" viewBox="0 0 64 64"><circle cx="32" cy="24" r="11" fill="currentColor" opacity=".92"/><path d="M10 64c2-17 12-25 22-25s20 8 22 25z" fill="currentColor" opacity=".92"/></symbol>
 </svg>
 <ul class="chips" aria-hidden="true">
-<li class="chip chip--1" style="--bg:#ffe1d3;--fg:#fc6d2d;--tag:#fc6d2d"><span class="chip__face"><svg><use href="#person"/></svg></span><em>Designer</em></li>
-<li class="chip chip--2" style="--bg:#e4defd;--fg:#6647f0;--tag:#6647f0"><span class="chip__face"><svg><use href="#person"/></svg></span><em>Team lead</em></li>
-<li class="chip chip--3" style="--bg:#d6ecff;--fg:#0091ff;--tag:#0091ff"><span class="chip__face"><svg><use href="#person"/></svg></span><em>Student</em></li>
-<li class="chip chip--4" style="--bg:#d9f3e4;--fg:#078d3b;--tag:#078d3b"><span class="chip__face"><svg><use href="#person"/></svg></span><em>Developer</em></li>
-<li class="chip chip--5" style="--bg:#f6e0f1;--fg:#b0307f;--tag:#b0307f"><span class="chip__face"><svg><use href="#person"/></svg></span><em>Marketer</em></li>
+<li class="chip chip--1" style="--bg:#ffe1d3;--fg:#fc6d2d;--tag:#fc6d2d"><span class="chip__face"><svg><use href="#person"/></svg><img src="images/team/hero-1.jpg" alt="" width="96" height="96" onerror="this.remove()"></span><em>Designer</em></li>
+<li class="chip chip--2" style="--bg:#e4defd;--fg:#6647f0;--tag:#6647f0"><span class="chip__face"><svg><use href="#person"/></svg><img src="images/team/hero-2.jpg" alt="" width="96" height="96" onerror="this.remove()"></span><em>Team lead</em></li>
+<li class="chip chip--3" style="--bg:#d6ecff;--fg:#0091ff;--tag:#0091ff"><span class="chip__face"><svg><use href="#person"/></svg><img src="images/team/hero-3.jpg" alt="" width="96" height="96" onerror="this.remove()"></span><em>Student</em></li>
+<li class="chip chip--4" style="--bg:#d9f3e4;--fg:#078d3b;--tag:#078d3b"><span class="chip__face"><svg><use href="#person"/></svg><img src="images/team/hero-4.jpg" alt="" width="96" height="96" onerror="this.remove()"></span><em>Developer</em></li>
+<li class="chip chip--5" style="--bg:#f6e0f1;--fg:#b0307f;--tag:#b0307f"><span class="chip__face"><svg><use href="#person"/></svg><img src="images/team/hero-5.jpg" alt="" width="96" height="96" onerror="this.remove()"></span><em>Marketer</em></li>
 </ul>
 
 <div class="container hero__inner">
@@ -463,6 +463,8 @@ all day.</span>
     </div>
   </section>
 
+<!-- Team and partners: the content comes from js/team.js -->
+<section class="team" id="team" aria-labelledby="team-title"></section>
 </main>
 
 <!-- ============ FOOTER ============ -->
@@ -503,6 +505,7 @@ all day.</span>
 <h3>Company</h3>
 <ul>
 <li><a href="#about">About</a></li>
+<li><a href="#team">Team</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 </nav>
@@ -525,5 +528,6 @@ all day.</span>
 
 <!-- All the behaviour (menu, pricing switch, form) lives in this file -->
 <script src="js/main.js"></script>
+<script src="js/team.js"></script>
 </body>
 </html>
