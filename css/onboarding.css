@@ -1,0 +1,21 @@
+/* =========================================================
+   ProTask – onboarding (3 steps after sign-up)
+   Loaded after auth.css: reuses the same layout, fields and brand panel.
+   ========================================================= */
+.auth__step{margin:0;font-size:14px;color:var(--grey)}
+.step[hidden]{display:none}
+.step-pill{display:inline-block;margin-bottom:16px;padding:7px 12px;border-radius:999px;background:var(--purple);color:#fff;font:600 11px/1 var(--font-text);letter-spacing:.6px;text-transform:uppercase}
+
+/* dropdowns (native <select>, styled like the text fields) */
+.af select{width:100%;appearance:none;-webkit-appearance:none;font:400 15px/1.4 var(--font-text);color:var(--ink);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23646464' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9.5l6 6 6-6'/%3E%3C/svg%3E") right 14px center/18px no-repeat;border:1px solid var(--line);border-radius:12px;padding:13px 44px 13px 14px;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.af select:required:invalid{color:#9a9aa6}
+.af select option{color:var(--ink)}
+.af select:hover{border-color:#cfcfd6}
+.af select:focus{outline:none;border-color:var(--purple);box-shadow:0 0 0 3px rgba(102,71,240,.16)}
+.af--error select{border-color:var(--red)}
+.af input[readonly]{background:var(--box);cursor:default}
+.af__hint{margin:6px 0 0;font-size:12.5px;line-height:18px;color:var(--grey)}
+.af--error .af__hint{display:none}
+.auth__btn[type=button]{margin-top:6px}
+.auth__back{display:block;width:100%;margin-top:14px;padding:6px;border:0;background:none;text-align:center;font:600 13px var(--font-text);color:var(--purple);cursor:pointer}
+.auth__back:hover{text-decoration:underline}

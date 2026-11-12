@@ -119,6 +119,7 @@ if (registerForm) {
     msgs.forEach(([input, msg]) => setError(input, msg));
     const firstBad = msgs.find(([, msg]) => msg);
     if (firstBad) { firstBad[0].focus(); return; }
+    try { sessionStorage.setItem('protask.name', name.value.trim()); } catch (err) { /* ignore */ }   // used by the onboarding page
 
     const button = registerForm.querySelector('button[type=submit]');
     busy(button, true, 'Create account');

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Set up your profile – ProTask</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@650;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/onboarding.css">
+</head>
+<body class="auth-body">
+<main class="auth">
+<div class="auth__side">
+  <div class="auth__top">
+    <a href="index.html" class="logo" aria-label="ProTask home">
+      <img class="logo__mark" src="images/logo-mark00.svg" width="28" height="28" alt="">
+      <span class="logo__text"></span>
+    </a>
+    <p class="auth__step" id="step-count" aria-live="polite">Step 1 of 3</p>
+  </div>
+
+  <div class="auth__main"><div class="auth__box">
+  <!-- Shown once, right after a new user has signed up and verified the email. All texts can be edited here. -->
+  <form id="onboarding-form" novalidate>
+
+    <!-- STEP 1 -->
+    <section class="step" data-step="1">
+      <span class="step-pill">Step 1 of 3</span>
+      <h1>Let’s build your profile</h1>
+      <p class="auth__lead">Start with the basics. You can update these details later.</p>
+      <div class="af"><label for="full-name">Full name</label><input id="full-name" name="fullName" type="text" autocomplete="name" placeholder="Your full name" readonly><p class="af__hint">Your full name comes from your account.</p></div>
+      <div class="af"><label for="display-name">Display name</label><input id="display-name" name="displayName" type="text" autocomplete="nickname" placeholder="How should we call you? (optional)"></div>
+      <div class="af"><label for="location">Location</label><input id="location" name="location" type="text" autocomplete="address-level2" placeholder="City or country (optional)"></div>
+      <button type="button" class="btn btn--dark auth__btn" data-next>Continue</button>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="step" data-step="2" hidden>
+      <span class="step-pill">Step 2 of 3</span>
+      <h1>What do you do?</h1>
+      <p class="auth__lead">Tell us a little about your work or studies.</p>
+      <div class="af"><label for="who">I’m a</label>
+        <select id="who" name="who" required>
+          <option value="" disabled selected>Select what best describes you</option>
+          <option>Student</option><option>Teacher or supervisor</option><option>Employee</option><option>Freelancer</option><option>Founder or entrepreneur</option><option>Other</option>
+        </select><p class="af__msg" role="alert"></p></div>
+      <div class="af"><label for="field">Area of work or study</label>
+        <select id="field" name="field" required>
+          <option value="" disabled selected>Choose your field</option>
+          <option>Engineering</option><option>Computer science</option><option>Design and creative</option><option>Business and management</option><option>Marketing and communication</option><option>Health</option><option>Education</option><option>Other</option>
+        </select><p class="af__msg" role="alert"></p></div>
+      <div class="af"><label for="org">Organization or school</label><input id="org" name="org" type="text" list="org-list" autocomplete="organization" placeholder="Add a name (optional)"><datalist id="org-list"><option value="ENISo"></option><option value="Orange Digital Center Club ENISo"></option></datalist><p class="af__hint">This helps us tailor your experience.</p></div>
+      <button type="button" class="btn btn--dark auth__btn" data-next>Continue</button>
+      <button type="button" class="auth__back" data-back>Back</button>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="step" data-step="3" hidden>
+      <span class="step-pill">Step 3 of 3</span>
+      <h1>How do you work with your team?</h1>
+      <p class="auth__lead">Help us make your workspace feel like yours.</p>
+      <div class="af"><label for="role">Your role in a project</label>
+        <select id="role" name="role" required>
+          <option value="" disabled selected>Select your role</option>
+          <option>I manage projects (project admin)</option><option>I am a team member</option><option>I am not sure yet</option>
+        </select><p class="af__msg" role="alert"></p></div>
+      <div class="af"><label for="goal">What will you use ProTask for?</label>
+        <select id="goal" name="goal" required>
+          <option value="" disabled selected>Select your goal</option>
+          <option>A school or university project</option><option>A student club</option><option>A startup or small team</option><option>A company team</option><option>My personal tasks</option>
+        </select><p class="af__msg" role="alert"></p><p class="af__hint">Your project owner manages access and permissions.</p></div>
+      <button type="submit" class="btn btn--dark auth__btn" id="finish">Finish profile</button>
+      <button type="button" class="auth__back" data-back>Back</button>
+    </section>
+  </form>
+  </div></div>
+
+  <div class="auth__foot">
+    <ul class="auth__legal"><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms of use</a></li><li><a href="cookies.html">Cookie policy</a></li></ul>
+    <div class="auth__lang" role="group" aria-label="Language"><button type="button" aria-pressed="true">English</button><button type="button" aria-pressed="false">Français</button></div>
+  </div>
+</div>
+<aside class="brand" aria-hidden="true">
+  <div>
+    <span class="brand__tag"><i></i>Built for student and startup teams</span>
+    <h2>The one workspace for every team project</h2>
+    <p>Boards, deadlines, messages and files in one place, so nobody has to ask what is happening.</p>
+  </div>
+  <div class="brand__card">
+    <h3>Website redesign · Sprint 3</h3>
+    <div class="brand__row">Write user stories<span class="brand__pill brand__pill--soon">3 days left</span></div>
+    <div class="brand__row">Login page design<span class="brand__pill brand__pill--late">Overdue</span></div>
+    <div class="brand__row">REST API routes<span class="brand__pill brand__pill--ok">On track</span></div>
+  </div>
+</aside>
+</main>
+<script src="js/auth.js"></script>
+<script src="js/onboarding.js"></script>
+</body>
+</html>
