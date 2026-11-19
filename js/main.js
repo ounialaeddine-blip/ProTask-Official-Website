@@ -18,7 +18,7 @@ if (menuButton && menuLinks) menuButton.addEventListener('click', () => {
 
 // close the menu after tapping a link
 if (menuLinks) menuLinks.addEventListener('click', (event) => {
-  if (event.target.tagName === 'A') {
+  if (event.target.closest('a[href]:not([data-soon])')) {
     menuLinks.classList.remove('is-open');
     menuButton.setAttribute('aria-expanded', 'false');
   }
